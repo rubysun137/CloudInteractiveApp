@@ -2,6 +2,12 @@ package com.ruby.cloudinteractiveapp.show;
 
 import android.content.Context;
 
+import com.ruby.cloudinteractiveapp.data.GetApiTask;
+import com.ruby.cloudinteractiveapp.data.GetPhotosCallBack;
+import com.ruby.cloudinteractiveapp.object.Photos;
+
+import java.util.List;
+
 public class ShowPresenter implements ShowContract.Presenter {
 
     private ShowContract.View mView;
@@ -13,6 +19,22 @@ public class ShowPresenter implements ShowContract.Presenter {
 
     @Override
     public void start() {
-
+        getData();
     }
+
+    @Override
+    public void getData() {
+        new GetApiTask(new GetPhotosCallBack() {
+            @Override
+            public void onCompleted(List<Photos> photos) {
+                mView.showPhotos(photos);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                mView.showErrorMessage(errorMessage);
+            }
+        });
+    }
+
 }

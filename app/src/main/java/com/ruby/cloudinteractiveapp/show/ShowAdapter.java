@@ -7,13 +7,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ruby.cloudinteractiveapp.R;
+import com.ruby.cloudinteractiveapp.object.Photos;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowAdapter extends RecyclerView.Adapter {
 
     private ShowContract.Presenter mPresenter;
+    private List<Photos> mPhotos;
+
+    public void setPhotos(List<Photos> photos) {
+        mPhotos = photos;
+    }
 
     public ShowAdapter(ShowContract.Presenter presenter) {
-
+        mPresenter = presenter;
+        mPhotos = new ArrayList<>();
     }
 
     @NonNull
@@ -31,7 +41,7 @@ public class ShowAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 40;
+        return mPhotos.size();
     }
 
     private class ShowViewHolder extends RecyclerView.ViewHolder{
