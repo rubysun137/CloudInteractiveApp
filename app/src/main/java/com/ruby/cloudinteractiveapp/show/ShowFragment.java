@@ -52,6 +52,6 @@ public class ShowFragment extends Fragment implements ShowContract.View {
 
     @Override
     public void showPhotos(List<Photos> photos) {
-        mAdapter.setPhotos(photos);
+        mAdapter.setPhotosList(photos);
     }
 }
