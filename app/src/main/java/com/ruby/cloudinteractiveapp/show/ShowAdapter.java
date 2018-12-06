@@ -33,14 +33,14 @@ public class ShowAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_photo,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_photo, viewGroup, false);
 
         return new ShowViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ((ShowViewHolder)viewHolder).bindView();
+        ((ShowViewHolder) viewHolder).bindView();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ShowAdapter extends RecyclerView.Adapter {
         return mPhotosList.size();
     }
 
-    private class ShowViewHolder extends RecyclerView.ViewHolder{
+    private class ShowViewHolder extends RecyclerView.ViewHolder {
 
         private TextView mId;
         private TextView mTitle;
@@ -65,14 +65,14 @@ public class ShowAdapter extends RecyclerView.Adapter {
 
         }
 
-        private void bindView(){
+        private void bindView() {
 
             mPhotos = mPhotosList.get(getAdapterPosition());
             mId.setText(String.valueOf(mPhotos.getId()));
             mTitle.setText(mPhotos.getTitle());
             mPhotoImage.setTag(mPhotos.getThumbnailUrl());
             mPhotoImage.setImageResource(R.drawable.place_holder);
-            ImageManager.getInstance().set(mPhotoImage,mPhotos.getThumbnailUrl());
+            ImageManager.getInstance().set(mPhotoImage, mPhotos.getThumbnailUrl());
 
 
         }

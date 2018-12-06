@@ -8,7 +8,7 @@ public class RetrofitManager {
     private static RetrofitManager mInstance;
     private ApiService mApiService;
 
-    private RetrofitManager(){
+    private RetrofitManager() {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com")
@@ -19,10 +19,10 @@ public class RetrofitManager {
 
     }
 
-    public static RetrofitManager getInstance(){
-        if(mInstance == null){
-            synchronized (RetrofitManager.class){
-                if(mInstance == null) {
+    public static RetrofitManager getInstance() {
+        if (mInstance == null) {
+            synchronized (RetrofitManager.class) {
+                if (mInstance == null) {
                     mInstance = new RetrofitManager();
                 }
             }
@@ -30,7 +30,7 @@ public class RetrofitManager {
         return mInstance;
     }
 
-    public ApiService getApi(){
+    public ApiService getApi() {
         return mApiService;
     }
 }

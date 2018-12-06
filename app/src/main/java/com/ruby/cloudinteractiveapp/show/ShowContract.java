@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ShowContract {
 
-    interface View extends BaseView<Presenter>{
+    interface View extends BaseView<Presenter> {
 
         void showErrorMessage(String errorMessage);
 
@@ -16,7 +16,7 @@ public interface ShowContract {
 
     }
 
-    interface Presenter extends BasePresenter{
+    interface Presenter extends BasePresenter {
 
         void getData();
 

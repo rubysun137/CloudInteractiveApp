@@ -25,7 +25,7 @@ public class GetApiTask {
             @Override
             public void onResponse(Call<List<Photos>> call, Response<List<Photos>> response) {
                 List<Photos> photos = new ArrayList<>(response.body());
-                Log.d("TAG", "onResponse: "+ photos.toString());
+                Log.d("TAG", "onResponse: " + photos.toString());
                 mCallBack.onCompleted(photos);
             }
 

@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface GetPhotosCallBack {
     void onCompleted(List<Photos> photos);
+
     void onError(String errorMessage);
 }
